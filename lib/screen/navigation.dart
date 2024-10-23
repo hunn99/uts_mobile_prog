@@ -1,24 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:uts_mobile_prog/views/pages/history.dart';
-import 'package:uts_mobile_prog/views/pages/home.dart';
+import 'package:uts_mobile_prog/views/pages/homepage.dart';
 import 'package:uts_mobile_prog/views/pages/profile.dart';
 
-class Home extends StatefulWidget {
-  const Home({super.key, this.index});
+class Navigation extends StatefulWidget {
+  const Navigation({super.key, this.index});
 
   final int? index;
 
   @override
-  State<Home> createState() => _HomeState();
+  State<Navigation> createState() => _NavigationState();
 }
 
-class _HomeState extends State<Home> {
+class _NavigationState extends State<Navigation> {
   final _screens = const [
     HomePage(),
     HistoryPage(),
-    Center(child: Text("Halaman Inbox")),
+    Center(child: Text("Inbox Page")),
     ProfilePage()
-    
   ];
 
   late int _currentScreenIndex;

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:uts_mobile_prog/screen/navigation.dart';
 import 'dart:async'; // Untuk menambahkan delay
-
-import 'package:uts_mobile_prog/views/pages/home.dart';
 
 class Splashscreen extends StatelessWidget {
   const Splashscreen({super.key});
@@ -11,7 +10,7 @@ class Splashscreen extends StatelessWidget {
     // Delay 3 detik sebelum navigasi ke HomePage
     Future.delayed(const Duration(seconds: 3), () {
       Navigator.pushReplacement(
-          context, MaterialPageRoute(builder: (context) => HomePage()));
+          context, MaterialPageRoute(builder: (context) => Navigation()));
     });
 
     // Menggunakan MediaQuery untuk mendapatkan tinggi layar

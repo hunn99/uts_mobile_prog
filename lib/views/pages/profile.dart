@@ -27,7 +27,7 @@ class _ProfilState extends State<ProfilePage> {
                     children: const [
                       const SizedBox(height: 20),
                       Text(
-                        'Muhammad Ridlo Febrio Putra',
+                        'Denny Malik Ibrahim',
                         style: TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
@@ -35,7 +35,7 @@ class _ProfilState extends State<ProfilePage> {
                       ),
                       SizedBox(height: 4),
                       Text(
-                        '+6285755730905',
+                        '+6285239283823',
                         style: TextStyle(
                           color: Colors.grey,
                         ),
@@ -74,7 +74,7 @@ class _ProfilState extends State<ProfilePage> {
                   const EdgeInsets.symmetric(horizontal: 8.0, vertical: 8.0),
               child: Column(
                 children: [
-                  _buildProfileOption('Email', 'febrio@gmail.com'),
+                  _buildProfileOption('Email', 'dennym@gmail.com'),
                   _buildProfileOption('Security Question', 'Set'),
                   _buildProfileOption('PIN Settings', ''),
                   _buildProfileOption('Language', 'English'),

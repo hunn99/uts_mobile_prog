@@ -7,7 +7,8 @@ class HistoryPage extends StatefulWidget {
   State<HistoryPage> createState() => _HistoryState();
 }
 
-class _HistoryState extends State<HistoryPage> with SingleTickerProviderStateMixin {
+class _HistoryState extends State<HistoryPage>
+    with SingleTickerProviderStateMixin {
   late TabController _tabController;
 
   @override
@@ -20,7 +21,11 @@ class _HistoryState extends State<HistoryPage> with SingleTickerProviderStateMix
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Center(child: const Text('Transaction History')),
+        title: Center(
+            child: const Text(
+          'Transaction History',
+          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+        )),
         bottom: TabBar(
           controller: _tabController,
           tabs: const [
@@ -118,18 +123,18 @@ class Transaction {
 
 final pendingTransactions = [
   Transaction(
-    title: 'Pay Merchant',
-    amount: '45.400',
-    date: '15 Sep 2024, 17:32 WIB',
-    status: 'Pending',
-    description: 'Indomaret_purchase',
-  ),
-  Transaction(
     title: 'Top Up from Bank',
     amount: '100.000',
     date: '15 Sep 2024, 17:26 WIB',
     status: 'Pending',
     description: 'Top Up from artajasa',
+  ),
+  Transaction(
+    title: 'Pay Merchant',
+    amount: '45.400',
+    date: '15 Sep 2024, 17:32 WIB',
+    status: 'Pending',
+    description: 'Indomaret_purchase',
   ),
 ];
 

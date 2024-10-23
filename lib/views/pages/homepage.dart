@@ -5,14 +5,14 @@ class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
   @override
-  State<HomePage> createState() => _HalamanHomeState();
+  State<HomePage> createState() => _HomePageState();
 }
 
-class _HalamanHomeState extends State<HomePage> {
+class _HomePageState extends State<HomePage> {
   final List<String> imgList = [
-    'assets/banner1.jpg',
-    'assets/banner2.jpg',
-    'assets/banner3.jpg',
+    'assets/iklan1.jpg',
+    'assets/iklan2.jpg',
+    'assets/iklan3.jpg',
   ];
 
   @override
@@ -151,75 +151,34 @@ class _HalamanHomeState extends State<HomePage> {
                 ],
               ),
             ),
-            Padding(
-              padding: EdgeInsets.only(left: 8, right: 8),
+            Container(
+              padding: const EdgeInsets.only(
+                  left: 16, right: 16, top: 4, bottom: 16),
+              margin: const EdgeInsets.symmetric(horizontal: 16),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.25),
+                    spreadRadius: 1,
+                    blurRadius: 5,
+                    offset: const Offset(0, 3),
+                  ),
+                ],
+                borderRadius: BorderRadius.circular(10),
+              ),
               child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Expanded(
-                    child: Card(
-                      child: Container(
-                        padding: const EdgeInsets.only(
-                            top: 10, left: 10, right: 10, bottom: 16),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: const [
-                            Text(
-                              'Transfer',
-                              style: TextStyle(
-                                fontSize: 14,
-                                color: Colors.grey,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            SizedBox(height: 8),
-                            Text(
-                              'Send money to your friends',
-                              style: TextStyle(
-                                fontSize: 16,
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                  const SizedBox(width: 8),
-                  Expanded(
-                    child: Card(
-                      child: Container(
-                        padding: const EdgeInsets.all(16.0),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: const [
-                            Text(
-                              'Top Up',
-                              style: TextStyle(
-                                fontSize: 14,
-                                color: Colors.grey,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            SizedBox(height: 8),
-                            Text(
-                              'Top up your balance',
-                              style: TextStyle(
-                                fontSize: 16,
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
+                  _buildActionButton(Icons.add_circle_outline, "TopUp"),
+                  _buildActionButton(Icons.outbound_outlined, "CashOut"),
+                  _buildActionButton(Icons.send_outlined, "Send Money"),
+                  _buildActionButton(Icons.grid_view_outlined, "See All"),
                 ],
               ),
             ),
             Padding(
-              padding: EdgeInsets.only(),
+              padding: EdgeInsets.only(top: 0, left: 12, right: 12, bottom: 20),
               child: GridView.count(
                 crossAxisCount: 4, // 4 columns
                 shrinkWrap: true,
@@ -231,7 +190,7 @@ class _HalamanHomeState extends State<HomePage> {
                   buildIconItem('Cable TV', Icons.tv),
                   buildIconItem('E-Money', Icons.credit_card),
                   buildIconItem('Gereja', Icons.church),
-                  buildIconItem('Infag', Icons.volunteer_activism),
+                  buildIconItem('Infaq', Icons.volunteer_activism),
                   buildIconItem('Other', Icons.more_vert),
                   buildIconItem('More', Icons.more),
                 ],
@@ -251,8 +210,10 @@ class _HalamanHomeState extends State<HomePage> {
               items: imgList
                   .map((item) => Container(
                         child: Center(
-                          child:
-                              Image.asset(item, fit: BoxFit.cover, width: 1000),
+                          child: ClipRRect(
+                              borderRadius: BorderRadius.circular(24),
+                              child: Image.asset(item,
+                                  fit: BoxFit.cover, width: 1000)),
                         ),
                       ))
                   .toList(),
@@ -274,4 +235,19 @@ class _HalamanHomeState extends State<HomePage> {
       ],
     );
   }
+}
+
+Widget _buildActionButton(IconData icon, String label) {
+  return Column(
+    children: [
+      IconButton(
+        icon: Icon(icon, color: Colors.black38),
+        onPressed: () {},
+      ),
+      Text(
+        label,
+        style: const TextStyle(color: Colors.black, fontSize: 14),
+      ),
+    ],
+  );
 }
